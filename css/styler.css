@@ -1,0 +1,513 @@
+body { margin: 0; font-family: 'Roboto', sans-serif; background-color: #f9f9f9; color: #333; } .header-bg-img { background-image: url('grade.png'); /* Substituir por imagem real */ background-size: cover; background-position: center; height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; } .bg-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); } .header-content { position: relative; text-align: center; color: #fff; z-index: 2; max-width: 800px; margin: auto; padding: 20px; } .header-name { font-size: 2.5rem; font-weight: bold; margin: 0; } .header-desc { font-size: 1.2rem; margin-top: 20px; line-height: 1.5; } .btn-round { display: inline-block; padding: 10px 20px; border: 2px solid #fff; color: #fff; text-decoration: none; border-radius: 50px; transition: all 0.3s ease; } .btn-round:hover { background-color: #fff; color: #004aad; } .scroll_down { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); } .scroll_down a { color: #fff; font-size: 1.5rem; text-decoration: none; } .scroll_down a:hover { text-decoration: underline; } header { background-color: #004aad; color: #fff; padding: 10px 8%; display: flex; align-items: center; justify-content: space-between; } header h1 { font-size: 2rem; margin: 0; transition: color 0.3s ease, transform 0.3s ease; cursor: pointer; } header h1:hover { color: #ff9900; transform: scale(1.1); } header img { max-width: 7%; } header nav a { color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold; } header nav a:hover { text-decoration: underline; } .hero { background-image: url('https://via.placeholder.com/1600x600'); /* Substituir por imagem real */ background-size: cover; background-position: center; text-align: center; padding: 100px 10%; color: #fff; } .hero h1 { font-size: 3rem; margin-bottom: 20px; } .hero p { font-size: 1.2rem; margin-bottom: 30px; } .hero a { background-color: #ff9900; color: #fff; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-size: 1.1rem; } .hero a:hover { background-color: #cc7a00; } .features { display: flex; justify-content: space-around; padding: 50px 10%; background-color: #fff; flex-wrap: wrap; } .feature { text-align: center; max-width: 300px; margin: 20px; } .feature img { max-width: 100%; border-radius: 10px; } .feature h3 { margin: 20px 0 10px; } footer { background-color: #004aad; color: #fff; text-align: center; padding: 20px 10%; } footer p { margin: 0; } footer a { color: #ff9900; text-decoration: none; } footer a:hover { text-decoration: underline; } @media (max-width: 768px) { .header-name { font-size: 2rem; } .header-desc { font-size: 1rem; } .hero h1 { font-size: 2.5rem; } .hero p { font-size: 1rem; } }
+/* Estilos para o botão e o modal */
+.modal {
+    display: none; /* Oculto por padrão */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, 
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input, 
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #004aad;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #003386;
+}
+    /* Estilos para o botão e o modal */
+    .modal {
+        display: none; /* Oculto por padrão */
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    .modal-content {
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+        border-radius: 10px;
+    }
+    
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .close:hover, 
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    label {
+        display: block;
+        margin: 10px 0 5px;
+    }
+    
+    input, 
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    .btn-round {
+        display: inline-block;
+        padding: 10px 20px;
+        border: 2px solid #004aad; /* Cor de borda */
+        background-color: transparent; /* Fundo transparente */
+        color: #004aad; /* Cor do texto */
+        text-decoration: none;
+        border-radius: 50px; /* Arredondamento do botão */
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-round:hover {
+        background-color: #004aad; /* Fundo azul ao passar o mouse */
+        color: white; /* Texto branco */
+    }
+    .botton {
+        display: inline-block;
+        padding: 10px 20px;
+        border: 2px solid #004aad; /* Cor de borda */
+        background-color: transparent; /* Fundo transparente */
+        color: #004aad; /* Cor do texto */
+        text-decoration: none;
+        border-radius: 50px; /* Arredondamento do botão */
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .botton:hover {
+        background-color: #004aad; /* Fundo azul ao passar o mouse */
+        color: white; /* Texto branco */
+    }
+    /* Geral */
+.section {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Estilos para colunas */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.column {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.image-column {
+    text-align: center;
+}
+
+.text-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Imagem */
+.about-image {
+    max-width: 65%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Textos */
+h2 {
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+h2 .highlight {
+    color: #2222b7;
+    font-weight: bold;
+}
+
+.welcome-message {
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+.highlight-text {
+    color: #004aad;
+    font-weight: bold;
+}
+
+p {
+    color: #555;
+    line-height: 1.6;
+    margin: 15px 0;
+}
+.header-desc{
+    color: #ffffff;
+    line-height: 1.6;
+    margin: 15px 0;
+}
+/* Social links */
+.about-social {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+    display: flex;
+    gap: 15px;
+}
+
+.about-social li {
+    display: inline-block;
+}
+
+.about-social a {
+    color: #2222b7;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.about-social a:hover {
+    color: #ff9900;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .column {
+        flex: unset;
+        width: 100%;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+    }
+
+    .about-social a {
+        font-size: 1.2rem;
+    }
+}
+.carousel-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    padding: 20px 0;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.feture {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+}
+
+.feture img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.feture h3 {
+    color: #2222b7;
+    margin-bottom: 10px;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.carousel-btn.left {
+    left: 10px;
+}
+
+.carousel-btn.right {
+    right: 10px;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    .feture img {
+        max-width: 100%; /* Remove limite de largura fixa */
+    }
+
+    .carousel-btn {
+        font-size: 20px; /* Reduz o tamanho dos botões */
+        padding: 8px;
+    }
+
+    .feture {
+        padding: 10px; /* Ajusta o espaço interno */
+    }
+}
+
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px; /* Distância da borda inferior */
+    right: 20px; /* Distância da borda direita */
+    width: 60px; /* Tamanho do botão */
+    height: 60px;
+    background-color: #25d366; /* Cor de fundo verde WhatsApp */
+    border-radius: 50%; /* Deixa o botão redondo */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona um efeito de sombra */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    transition: transform 0.2s ease-in-out; /* Animação suave no hover */
+}
+
+.whatsapp-button img {
+    width: 35px; /* Tamanho do ícone */
+    height: 35px;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1); /* Efeito de aumento no hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra mais destacada */
+}
+
+/* Container principal */
+.containe {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Cabeçalho */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h2 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.header p {
+    font-size: 1em;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Contatos */
+.contact-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.contact-item {
+    flex: 1 1 calc(33.333% - 20px);
+    text-align: center;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-item .icon {
+    font-size: 2em;
+    color: #2222b7;
+    margin-bottom: 10px;
+}
+
+.contact-title {
+    font-size: 1.2em;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.contact-text {
+    font-size: 1em;
+    color: #555;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .contact-item {
+        flex: 1 1 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header h2 {
+        font-size: 1.5em;
+    }
+
+    .header p {
+        font-size: 0.9em;
+    }
+
+    .contact-title {
+        font-size: 1em;
+    }
+
+    .contact-text {
+        font-size: 0.9em;
+    }
+}
+
+.contact-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 180px;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    border: 0px solid #2222b7;
+    padding: 5px;
+    background-color: white;
+}
+
+.contact-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #2222b7;
+    margin-bottom: 5px;
+}
+
+.contact-text {
+    font-size: 0.9rem;
+    color: #333;
+    text-decoration: none;
+}
+
+.contact-text:hover {
+    color: #2222b7;
+    text-decoration: underline;
+}
