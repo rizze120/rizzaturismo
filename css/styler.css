@@ -624,3 +624,28 @@ p {
 .btn-primary:hover {
     background-color: #002266;
 }
+@media screen and (max-width: 768px) {
+    .spiral-videos-title {
+        font-size: 1.5em;
+    }
+
+    .spiral-videos-description {
+        font-size: 1em;
+    }
+
+    .carousel-button {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2em;
+    }
+
+    .video-item {
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+}
